@@ -16,6 +16,7 @@ import com.iandw.musicplayerjavafx.Utilities.Utils;
 
 import java.io.IOException;
 import java.io.InterruptedIOException;
+import java.util.Objects;
 
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -87,7 +88,12 @@ public class SettingsController extends AnchorPane {
                                 TableViewLibrary tableViewLibrary, MusicLibrary musicLibrary,
                                 UserSettings userSettings, String directoryLabel, Stage stage)
     {
-        rootDirectoryLabel.setText(directoryLabel);
+        if (Objects.equals(directoryLabel, "")) {
+            rootDirectoryLabel.setText("No root directory.");
+        } else {
+            rootDirectoryLabel.setText(directoryLabel);
+        }
+
         themesLabel.setText("Music Player Appearance.");
 
         // Initialize ComboBox
