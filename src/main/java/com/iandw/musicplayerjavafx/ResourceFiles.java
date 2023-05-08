@@ -12,9 +12,10 @@ import com.iandw.musicplayerjavafx.Utilities.Utils;
 import java.io.File;
 
 public class ResourceFiles {
+
     /**
      *
-     *  Files from Application executable directory
+     *                      Files from Application executable directory
      *
      */
 
@@ -26,15 +27,29 @@ public class ResourceFiles {
     private static final File playlistsFile = new File(dataFolder, "playlists.ser");
     private static final File consolelogFile = new File(Utils.getExeDirPath(), "consolelog.txt");
 
-//    private static final String autoplayiconURL = Objects.requireNonNull(App.class.getResource(
-//                    "autoplay2.png")).toString().substring(10);
+    /**
+     *                      ICON FILES
+     */
+
+    private static final File autoplayIconFile = new File(imagesFolder, "autoplay.png");
+    private static final File shuffleIconFile = new File(imagesFolder, "shuffle.png");
+    private static final File repeatIconFile = new File(imagesFolder, "repeat.png");
+    private static final File skipforwardsIconFile = new File(imagesFolder, "skipforwards.png");
+    private static final File skipbackwardsIconFile = new File(imagesFolder, "skipbackwards.png");
+    private static final File playIconFile = new File(imagesFolder, "play.png");
+    private static final File pauseIconFile = new File(imagesFolder, "pause.png");
+    private static final File stopIconFile = new File(imagesFolder, "stop.png");
+    private static final File volumeUpFile = new File(imagesFolder, "volumeup.png");
+    private static final File volumeDownFile = new File(imagesFolder, "volumedown.png");
+    private static final File volumeOffFile = new File(imagesFolder, "volumeoff.png");
+    private static final File volumeMuteFile = new File(imagesFolder, "volumemute.png");
 
 
-    /*
+    /**
      *                      DEFAULT ALBUM ART FILES
      */
 
-    private static final File musicnoteslightFile = new File(imagesFolder, "musicnotes-light");
+    private static final File musicnoteslightFile = new File(imagesFolder, "musicnotes-light.png");
 
     private static final File musicnotesdarkFile = new File(imagesFolder, "musicnotes-dark.png");
 
@@ -60,8 +75,22 @@ public class ResourceFiles {
     public static File getTrackListFile() { return tracklistFile; }
     public static File getPlaylistsFile() { return playlistsFile; }
     public static File getConsolelogFile() { return consolelogFile; }
-    // Image urls
-//    public static String getAutoplayiconURL() { return autoplayiconURL; }
+
+    // Icon Files
+    public static File getAutoplayIconFile() { return autoplayIconFile; }
+    public static File getShuffleIconFile() { return shuffleIconFile; }
+    public static File getRepeatIconFile() { return repeatIconFile; }
+    public static File getSkipforwardsIconFile() { return skipforwardsIconFile; }
+    public static File getSkipbackwardsIconFile() { return skipbackwardsIconFile; }
+    public static File getPlayIconFile() { return playIconFile; }
+    public static File getPauseIconFile() { return pauseIconFile; }
+    public static File getStopIconFile() { return stopIconFile; }
+    public static File getVolumeUpFile() { return volumeUpFile; }
+    public static File getVolumeDownFile() { return volumeDownFile; }
+    public static File getVolumeOffFile() { return volumeOffFile; }
+    public static File getVolumeMuteFile() { return volumeMuteFile; }
+
+    // Album Image Files
     public static File getMusicnotesLightFile() { return musicnoteslightFile; }
     public static File getMusicnotesDarkFile() { return musicnotesdarkFile; }
     public static File getMusicnotesGreenFile() { return musicnotesgreenFile; }

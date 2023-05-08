@@ -15,6 +15,8 @@ import javafx.scene.effect.Light;
 import javafx.scene.effect.Lighting;
 import javafx.scene.paint.Color;
 
+import java.io.File;
+
 public class ImageFileLogic {
     private final String userTheme;
     // CSS File Names
@@ -89,18 +91,17 @@ public class ImageFileLogic {
     }
 
     // Gets correct album image file depending on theme
-    public String getAlbumImage() {
-        String albumImageFile = null;
+    public File getAlbumImageFile() {
+        File albumImageFile = null;
 
         switch (userTheme) {
-            case styleLightFileName   -> albumImageFile = ResourceFiles.getMusicnotesLightFile().getPath();
-            case styleDarkFileName    -> albumImageFile = ResourceFiles.getMusicnotesDarkFile().getPath();
-            case styleBlueFileName    -> albumImageFile = ResourceFiles.getMusicnotesBlueFile().getPath();
-            case styleGreenFileName   -> albumImageFile = ResourceFiles.getMusicnotesGreenFile().getPath();
-            case styleRedFileName     -> albumImageFile = ResourceFiles.getMusicnotesRedFile().getPath();
-            case stylePinkFileName    -> albumImageFile = ResourceFiles.getMusicnotesPinkFile().getPath();
-            case styleConsoleFileName -> albumImageFile = ResourceFiles.getMusicnotesConsoleFile().getPath();
-
+            case styleLightFileName   -> albumImageFile = ResourceFiles.getMusicnotesLightFile();
+            case styleDarkFileName    -> albumImageFile = ResourceFiles.getMusicnotesDarkFile();
+            case styleBlueFileName    -> albumImageFile = ResourceFiles.getMusicnotesBlueFile();
+            case styleGreenFileName   -> albumImageFile = ResourceFiles.getMusicnotesGreenFile();
+            case styleRedFileName     -> albumImageFile = ResourceFiles.getMusicnotesRedFile();
+            case stylePinkFileName    -> albumImageFile = ResourceFiles.getMusicnotesPinkFile();
+            case styleConsoleFileName -> albumImageFile = ResourceFiles.getMusicnotesConsoleFile();
         }
 
         return albumImageFile;

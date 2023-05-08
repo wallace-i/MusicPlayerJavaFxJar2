@@ -19,8 +19,6 @@ import com.iandw.musicplayerjavafx.Libraries.TableViewLibrary;
 import com.iandw.musicplayerjavafx.Utilities.*;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 import java.util.*;
 import java.util.concurrent.ExecutorService;
@@ -31,7 +29,6 @@ import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
-import org.kordamp.ikonli.javafx.FontIcon;
 
 import javafx.application.HostServices;
 import javafx.fxml.FXML;
@@ -150,6 +147,12 @@ public class MusicPlayerController {
 
     private Image defaultAlbumImage;
     private ImageFileLogic imageFileLogic;
+    private ImageView playIcon;
+    private ImageView pauseIcon;
+    private ImageView volumeUpIcon;
+    private ImageView volumeDownIcon;
+    private ImageView volumeOffIcon;
+    private ImageView volumeMuteIcon;
     private MediaPlayer mediaPlayer;
     private MusicLibrary musicLibrary;
     private final TableViewLibrary tableViewLibrary;
@@ -223,20 +226,61 @@ public class MusicPlayerController {
         colTrackLength.setMaxWidth( 1f * Integer.MAX_VALUE * 6 );
         colTrackGenre.setMaxWidth( 1f * Integer.MAX_VALUE * 14 );
 
-        // Autoplay Icon (all other icons are from bootstrapicons -> musiclibrary.fxml)
-        //ImageView autoPlayIcon = new ImageView(ResourceURLs.getAutoplayiconURL());
+        // Initialize GUI Icons (bootstrapicons)
+        ImageView autoPlayIcon = new ImageView(ResourceFiles.getAutoplayIconFile().getPath());
+        ImageView shuffleIcon = new ImageView(ResourceFiles.getShuffleIconFile().getPath());
+        ImageView repeatIcon = new ImageView(ResourceFiles.getRepeatIconFile().getPath());
+        ImageView skipForwardIcon = new ImageView(ResourceFiles.getSkipforwardsIconFile().getPath());
+        ImageView skipBackwardsIcon = new ImageView(ResourceFiles.getSkipbackwardsIconFile().getPath());
+        playIcon = new ImageView(ResourceFiles.getPlayIconFile().getPath());
+        pauseIcon = new ImageView(ResourceFiles.getPauseIconFile().getPath());
+        ImageView stopIcon = new ImageView(ResourceFiles.getStopIconFile().getPath());
+        volumeUpIcon = new ImageView(ResourceFiles.getVolumeUpFile().getPath());
+        volumeDownIcon = new ImageView(ResourceFiles.getVolumeDownFile().getPath());
+        volumeOffIcon = new ImageView(ResourceFiles.getVolumeOffFile().getPath());
+        volumeMuteIcon = new ImageView(ResourceFiles.getVolumeMuteFile().getPath());
 
-        // Change color to match theme
-        //autoPlayIcon.setEffect(imageFileLogic.getLighting());
-        //autoButton.setGraphic(autoPlayIcon);
-        //autoButton.getGraphic().setTranslateX(2.0);
+        // Set Icon Color
+        autoPlayIcon.setEffect(imageFileLogic.getLighting());
+        autoButton.setGraphic(autoPlayIcon);
+        autoButton.getGraphic().setTranslateX(2.0);
+
+        shuffleIcon.setEffect(imageFileLogic.getLighting());
+        shuffleButton.setGraphic(shuffleIcon);
+        shuffleButton.getGraphic().setTranslateX(2.0);
+
+        repeatIcon.setEffect(imageFileLogic.getLighting());
+        repeatButton.setGraphic(repeatIcon);
+        repeatButton.getGraphic().setTranslateX(2.0);
+
+        skipForwardIcon.setEffect(imageFileLogic.getLighting());
+        nextButton.setGraphic(skipForwardIcon);
+
+        skipBackwardsIcon.setEffect(imageFileLogic.getLighting());
+        previousButton.setGraphic(skipBackwardsIcon);
+
+        playIcon.setEffect(imageFileLogic.getLighting());
+        playPauseButton.setGraphic(playIcon);
+
+        pauseIcon.setEffect(imageFileLogic.getLighting());
+
+        stopIcon.setEffect(imageFileLogic.getLighting());
+        stopButton.setGraphic(stopIcon);
+
+        volumeUpIcon.setEffect(imageFileLogic.getLighting());
+        volumeIconLabel.setGraphic(volumeUpIcon);
+
+        volumeDownIcon.setEffect(imageFileLogic.getLighting());
+        volumeOffIcon.setEffect(imageFileLogic.getLighting());
+        volumeMuteIcon.setEffect(imageFileLogic.getLighting());
+
 
         // Album Art default graphic
-//        defaultAlbumImage = new Image(imageFileLogic.getAlbumImage());
-//        imageView.setImage(defaultAlbumImage);
-//        imageView.setOpacity(.9);
-//        imageView.setCache(true);
-//        imageView.setVisible(true);
+        defaultAlbumImage = new Image(imageFileLogic.getAlbumImageFile().getPath());
+        imageView.setImage(defaultAlbumImage);
+        imageView.setOpacity(.9);
+        imageView.setCache(true);
+        imageView.setVisible(true);
 
         // Initialize vol slider fill
         String initStyle = String.format(SliderFillColor.getStyle(currentTheme), (Math.sqrt(volumeDouble) * 100));
@@ -417,15 +461,15 @@ public class MusicPlayerController {
                         System.out.println("mediaPlayer is null");
                     }
 
-//                    if (volumeSlider.getValue() >= 50) {
-//                        volumeIconLabel.setGraphic(volumeUp);
-//
-//                    } else if (volumeSlider.getValue() > 0) {
-//                        volumeIconLabel.setGraphic(volumeDown);
-//
-//                    } else {
-//                        volumeIconLabel.setGraphic(volumeOff);
-//                    }
+                    if (volumeSlider.getValue() >= 50) {
+                        volumeIconLabel.setGraphic(volumeUpIcon);
+
+                    } else if (volumeSlider.getValue() > 0) {
+                        volumeIconLabel.setGraphic(volumeDownIcon);
+
+                    } else {
+                        volumeIconLabel.setGraphic(volumeOffIcon);
+                    }
 
                     // Slider css fill
                     double percentage = 100.0 * newValue.doubleValue() / volumeSlider.getMax();
@@ -446,20 +490,20 @@ public class MusicPlayerController {
                     if (mediaPlayer != null) {
                         mediaPlayer.setMute(newValue);
 
-//                        if (mute.isSelected()) {
-//                            volumeIconLabel.setGraphic(volumeMute);
-//
-//                        } else {
-//                            if (volumeSlider.getValue() >= 50) {
-//                                volumeIconLabel.setGraphic(volumeUp);
-//
-//                            } else if (volumeSlider.getValue() > 0) {
-//                                volumeIconLabel.setGraphic(volumeDown);
-//
-//                            } else {
-//                                volumeIconLabel.setGraphic(volumeOff);
-//                            }
-//                        }
+                        if (mute.isSelected()) {
+                            volumeIconLabel.setGraphic(volumeMuteIcon);
+
+                        } else {
+                            if (volumeSlider.getValue() >= 50) {
+                                volumeIconLabel.setGraphic(volumeUpIcon);
+
+                            } else if (volumeSlider.getValue() > 0) {
+                               volumeIconLabel.setGraphic(volumeDownIcon);
+
+                            } else {
+                              volumeIconLabel.setGraphic(volumeOffIcon);
+                            }
+                        }
                     }
 
                 }
@@ -739,8 +783,8 @@ public class MusicPlayerController {
             // Pause currently playing track
             if (playing) {
                 mediaPlayer.pause();
-               // playPauseButton.setGraphic(playIcon);
-                playPauseButton.setText("Play");
+                playPauseButton.setGraphic(playIcon);
+//                playPauseButton.setText("Play");
                 playing = false;
 
             // Play from selected track if stopped or null
@@ -750,8 +794,8 @@ public class MusicPlayerController {
             // Play from currently paused track
             } else {
                 mediaPlayer.play();
-              //  playPauseButton.setGraphic(pauseIcon);
-                playPauseButton.setText("Pause");
+                playPauseButton.setGraphic(pauseIcon);
+//                playPauseButton.setText("Pause");
                 playing = true;
                 stopped = false;
                 setNowPlayingText();
@@ -771,7 +815,7 @@ public class MusicPlayerController {
                     mediaPlayer.play();
                     playing = true;
                     stopped = false;
-                  //  playPauseButton.setGraphic(pauseIcon);
+                    playPauseButton.setGraphic(pauseIcon);
                 }
 
             } catch (NullPointerException e) {
@@ -881,8 +925,8 @@ public class MusicPlayerController {
 
             imageView.setPreserveRatio(true);
             imageView.setFitWidth(albumImageWidth);
-           // playPauseButton.setGraphic(pauseIcon);
-            playPauseButton.setText("Pause");
+            playPauseButton.setGraphic(pauseIcon);
+//            playPauseButton.setText("Pause");
             playing = true;
             stopped = false;
 
@@ -921,8 +965,8 @@ public class MusicPlayerController {
             mediaPlayer.dispose();
         }
 
-       // playPauseButton.setGraphic(playIcon);
-        playPauseButton.setText("Play");
+        playPauseButton.setGraphic(playIcon);
+//        playPauseButton.setText("Play");
         playing = false;
         stopped = true;
         setNowPlayingText();
@@ -1390,7 +1434,7 @@ public class MusicPlayerController {
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
     @FXML
-    private void exitClicked() throws FileNotFoundException {
+    private void exitClicked() {
         // Output to file on close if files data has been altered
         if (userSettings.getWriteOnClose()) {
             SettingsFileIO.jsonFileOutput(userSettings);

@@ -40,7 +40,7 @@
         </SplitPane>
     </HBox>
     <HBox alignment="CENTER" layoutX="117.0" layoutY="419.0" prefHeight="25.0" prefWidth="524.0">
-        <Button fx:id="previousButton" text="Prev." maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#previousButtonPressed" prefHeight="15.0" prefWidth="55.0">
+        <Button fx:id="previousButton" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#previousButtonPressed" prefHeight="15.0" prefWidth="55.0">
             <padding>
                 <Insets left="5.0" right="5.0" />
             </padding>
@@ -48,7 +48,7 @@
                 <Insets right="5.0" />
             </HBox.margin>
         </Button>
-        <Button fx:id="playPauseButton" text="Play" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#playPauseButtonPressed" prefHeight="15.0" prefWidth="55.0">
+        <Button fx:id="playPauseButton" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#playPauseButtonPressed" prefHeight="15.0" prefWidth="55.0">
             <padding>
                 <Insets left="5.0" right="5.0" />
             </padding>
@@ -56,7 +56,7 @@
                 <Insets left="5.0" right="5.0" />
             </HBox.margin>
         </Button>
-        <Button fx:id="stopButton" text="Stop" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#stopButtonPressed" prefHeight="15.0" prefWidth="55.0">
+        <Button fx:id="stopButton" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#stopButtonPressed" prefHeight="15.0" prefWidth="55.0">
             <padding>
                 <Insets left="5.0" right="5.0" />
             </padding>
@@ -64,7 +64,7 @@
                 <Insets left="5.0" right="5.0" />
             </HBox.margin>
         </Button>
-        <Button fx:id="nextButton" text="Next" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#nextButtonPressed" prefHeight="15.0" prefWidth="55.0">
+        <Button fx:id="nextButton" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#nextButtonPressed" prefHeight="15.0" prefWidth="55.0">
             <padding>
                 <Insets left="5.0" right="5.0" />
             </padding>
@@ -72,7 +72,7 @@
                 <Insets left="5.0" right="5.0" />
             </HBox.margin>
         </Button>
-        <RadioButton fx:id="autoButton" text="Auto" accessibleRole="COMBO_BOX" mnemonicParsing="false">
+        <RadioButton fx:id="autoButton" accessibleRole="COMBO_BOX" mnemonicParsing="false">
             <padding>
                 <Insets right="5.0" />
             </padding>
@@ -80,7 +80,7 @@
                 <Insets left="45.0" />
             </HBox.margin>
         </RadioButton>
-        <RadioButton fx:id="shuffleButton" text="Shuffle" mnemonicParsing="false">
+        <RadioButton fx:id="shuffleButton" mnemonicParsing="false">
             <HBox.margin>
                 <Insets left="5.0" right="5.0" />
             </HBox.margin>
@@ -88,7 +88,7 @@
                 <Insets right="5.0" />
             </padding>
         </RadioButton>
-        <RadioButton fx:id="repeatButton" text="Repeat" mnemonicParsing="false">
+        <RadioButton fx:id="repeatButton" mnemonicParsing="false">
             <HBox.margin>
                 <Insets />
             </HBox.margin>
