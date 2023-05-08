@@ -152,7 +152,7 @@
                 <Insets right="3.0" />
             </StackPane.margin>
         </TextField>
-        <Label prefHeight="25.0" prefWidth="30.0" styleClass="search-button" StackPane.alignment="CENTER_LEFT">
+        <Label fx:id="searchIconLabel" prefHeight="25.0" prefWidth="30.0" styleClass="search-button" StackPane.alignment="CENTER_LEFT">
             <StackPane.margin>
                 <Insets />
             </StackPane.margin>
@@ -160,7 +160,7 @@
                 <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
             </padding>
         </Label>
-        <Button mnemonicParsing="false" onMouseClicked="#handleClearSearchText" prefHeight="25.0" prefWidth="30.0" styleClass="delete-button" StackPane.alignment="CENTER_RIGHT">
+        <Button fx:id="clearButton" mnemonicParsing="false" onMouseClicked="#handleClearSearchText" prefHeight="25.0" prefWidth="30.0" styleClass="delete-button" StackPane.alignment="CENTER_RIGHT">
             <StackPane.margin>
                 <Insets right="2.0" />
             </StackPane.margin>

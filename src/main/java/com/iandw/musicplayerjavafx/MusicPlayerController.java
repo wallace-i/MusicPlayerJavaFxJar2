@@ -79,6 +79,8 @@ public class MusicPlayerController {
     @FXML
     private Button previousButton;
     @FXML
+    private Button clearButton;
+    @FXML
     private Slider volumeSlider;
     @FXML
     private Slider seekSlider;
@@ -97,6 +99,8 @@ public class MusicPlayerController {
     @FXML
     private Label volumeIconLabel;
     @FXML
+    private Label searchIconLabel;
+    @FXML
     private RadioButton autoButton;
     @FXML
     private RadioButton shuffleButton;
@@ -104,22 +108,6 @@ public class MusicPlayerController {
     private RadioButton repeatButton;
     @FXML
     private CheckBox mute;
-//    @FXML
-//    private FontIcon playIcon;
-//    @FXML
-//    private FontIcon pauseIcon;
-//    @FXML
-//    private FontIcon volumeUp;
-//    @FXML
-//    private FontIcon volumeDown;
-//    @FXML
-//    private FontIcon volumeOff;
-//    @FXML
-//    private FontIcon volumeMute;
-//    @FXML
-//    private FontIcon albumIcon;
-//    @FXML
-//    private FontIcon artistIcon;
     @FXML
     private ImageView imageView;
     @FXML
@@ -153,6 +141,10 @@ public class MusicPlayerController {
     private ImageView volumeDownIcon;
     private ImageView volumeOffIcon;
     private ImageView volumeMuteIcon;
+    private ImageView personIcon;
+    private ImageView discIcon;
+    private ImageView notesIcon;
+    private ImageView clearIcon;
     private MediaPlayer mediaPlayer;
     private MusicLibrary musicLibrary;
     private final TableViewLibrary tableViewLibrary;
@@ -209,10 +201,6 @@ public class MusicPlayerController {
         searchTableView = new SearchTableView();
         currentTheme = userSettings.getThemeFileNameString();
         imageFileLogic = new ImageFileLogic(currentTheme);
-//        playPauseButton.setGraphic(playIcon);
-//        volumeIconLabel.setGraphic(volumeUp);
-//        albumIcon.setOpacity(0);
-//        artistIcon.setOpacity(0);
         albumImageWidth = 55;
         volumeDouble = .25;
         autoPlay = AutoPlay.OFF;
@@ -239,6 +227,11 @@ public class MusicPlayerController {
         volumeDownIcon = new ImageView(ResourceFiles.getVolumeDownFile().getPath());
         volumeOffIcon = new ImageView(ResourceFiles.getVolumeOffFile().getPath());
         volumeMuteIcon = new ImageView(ResourceFiles.getVolumeMuteFile().getPath());
+        personIcon = new ImageView(ResourceFiles.getPersonFile().getPath());
+        discIcon = new ImageView(ResourceFiles.getDiscFile().getPath());
+        notesIcon = new ImageView(ResourceFiles.getNotesFile().getPath());
+        ImageView searchIcon = new ImageView(ResourceFiles.getSearchFile().getPath());
+        clearIcon = new ImageView(ResourceFiles.getxFile().getPath());
 
         // Set Icon Color
         autoPlayIcon.setEffect(imageFileLogic.getLighting());
@@ -274,6 +267,23 @@ public class MusicPlayerController {
         volumeOffIcon.setEffect(imageFileLogic.getLighting());
         volumeMuteIcon.setEffect(imageFileLogic.getLighting());
 
+        notesIcon.setEffect(imageFileLogic.getLighting());
+        playingLabel.setGraphic(notesIcon);
+
+        discIcon.setEffect(imageFileLogic.getLighting());
+        albumLabel.setGraphic(discIcon);
+        albumLabel.getGraphic().setOpacity(0);
+
+        personIcon.setEffect(imageFileLogic.getLighting());
+        byLabel.setGraphic(personIcon);
+        byLabel.getGraphic().setOpacity(0);
+
+        searchIcon.setEffect(imageFileLogic.getLighting());
+        searchIconLabel.setGraphic(searchIcon);
+        searchIconLabel.getGraphic().setTranslateX(3.0);
+
+        clearIcon.setEffect(imageFileLogic.getLighting());
+        clearButton.setGraphic(clearIcon);
 
         // Album Art default graphic
         defaultAlbumImage = new Image(imageFileLogic.getAlbumImageFile().getPath());
@@ -996,19 +1006,19 @@ public class MusicPlayerController {
             playingLabel.setText("-");
             albumLabel.setText("");
             byLabel.setText("");
-//            albumIcon.setOpacity(0);
-//            artistIcon.setOpacity(0);
+            albumLabel.getGraphic().setOpacity(0);
+            byLabel.getGraphic().setOpacity(0);
 
         } else if (trackTableView.getSelectionModel().getSelectedIndex() != trackIndex.getCurrentTrackIndex()) {
-//            albumIcon.setOpacity(100);
-//            artistIcon.setOpacity(100);
+            albumLabel.getGraphic().setOpacity(100);
+            byLabel.getGraphic().setOpacity(100);
             playingLabel.setText(" " + trackTableView.getItems().get(trackIndex.getCurrentTrackIndex()).getTrackTitleStr());
             albumLabel.setText(" " + trackTableView.getItems().get(trackIndex.getCurrentTrackIndex()).getAlbumTitleStr());
             byLabel.setText(" " + trackTableView.getItems().get(trackIndex.getCurrentTrackIndex()).getArtistNameStr());
 
         } else {
-//            albumIcon.setOpacity(100);
-//            artistIcon.setOpacity(100);
+            albumLabel.getGraphic().setOpacity(100);
+            byLabel.getGraphic().setOpacity(100);
             playingLabel.setText(" " + trackTableView.getSelectionModel().getSelectedItem().getTrackTitleStr());
             albumLabel.setText(" " + trackTableView.getSelectionModel().getSelectedItem().getAlbumTitleStr());
             byLabel.setText(" " + trackTableView.getSelectionModel().getSelectedItem().getArtistNameStr());

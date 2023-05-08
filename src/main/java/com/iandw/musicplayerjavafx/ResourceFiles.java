@@ -43,6 +43,9 @@ public class ResourceFiles {
     private static final File volumeDownFile = new File(imagesFolder, "volumedown.png");
     private static final File volumeOffFile = new File(imagesFolder, "volumeoff.png");
     private static final File volumeMuteFile = new File(imagesFolder, "volumemute.png");
+    private static final File personFile = new File(imagesFolder, "person.png");
+    private static final File discFile = new File(imagesFolder, "disc.png");
+    private static final File notesFile = new File(imagesFolder, "notes.png");
 
 
     /**
@@ -63,6 +66,9 @@ public class ResourceFiles {
 
     private static final File musicnotesconsoleFile = new File(imagesFolder, "musicnotes-console.png");
 
+    private static final File searchFile = new File(imagesFolder, "search.png");
+
+    private static final File xFile = new File(imagesFolder, "x.png");
 
     /**
      *
@@ -89,6 +95,11 @@ public class ResourceFiles {
     public static File getVolumeDownFile() { return volumeDownFile; }
     public static File getVolumeOffFile() { return volumeOffFile; }
     public static File getVolumeMuteFile() { return volumeMuteFile; }
+    public static File getPersonFile() { return personFile; }
+    public static File getDiscFile() { return discFile; }
+    public static File getNotesFile() { return notesFile; }
+    public static File getSearchFile() { return searchFile; }
+    public static File getxFile() { return xFile; }
 
     // Album Image Files
     public static File getMusicnotesLightFile() { return musicnoteslightFile; }
