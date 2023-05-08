@@ -489,23 +489,22 @@ public class MusicPlayerController {
                 (observableValue, oldValue, newValue) -> {
                     if (mediaPlayer != null) {
                         mediaPlayer.setMute(newValue);
-
-                        if (mute.isSelected()) {
-                            volumeIconLabel.setGraphic(volumeMuteIcon);
-
-                        } else {
-                            if (volumeSlider.getValue() >= 50) {
-                                volumeIconLabel.setGraphic(volumeUpIcon);
-
-                            } else if (volumeSlider.getValue() > 0) {
-                               volumeIconLabel.setGraphic(volumeDownIcon);
-
-                            } else {
-                              volumeIconLabel.setGraphic(volumeOffIcon);
-                            }
-                        }
                     }
 
+                    if (mute.isSelected()) {
+                        volumeIconLabel.setGraphic(volumeMuteIcon);
+
+                    } else {
+                        if (volumeSlider.getValue() >= 50) {
+                            volumeIconLabel.setGraphic(volumeUpIcon);
+
+                        } else if (volumeSlider.getValue() > 0) {
+                            volumeIconLabel.setGraphic(volumeDownIcon);
+
+                        } else {
+                            volumeIconLabel.setGraphic(volumeOffIcon);
+                        }
+                    }
                 }
         );
 
@@ -910,7 +909,12 @@ public class MusicPlayerController {
         // Set Seeker slider
         mediaPlayer.currentTimeProperty().addListener(observable -> seekValueUpdate());
 
-        mediaPlayer.setVolume(volumeDouble);
+        if (mute.isSelected()) {
+            mediaPlayer.setMute(true);
+
+        } else {
+            mediaPlayer.setVolume(volumeDouble);
+        }
 
         // Play media
         mediaPlayer.setOnReady(() -> {
