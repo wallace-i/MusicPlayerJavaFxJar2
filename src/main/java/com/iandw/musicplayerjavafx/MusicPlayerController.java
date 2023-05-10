@@ -24,7 +24,6 @@ import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.TimeUnit;
 
-import io.github.cdimascio.dotenv.Dotenv;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.stage.DirectoryChooser;
@@ -130,8 +129,8 @@ public class MusicPlayerController {
     private MenuItem gitHubMenuItem;
     @FXML
     private MenuItem consoleLogMenuItem;
-    @FXML
-    private MenuItem reportBugMenuItem;
+//    @FXML
+//    private MenuItem reportBugMenuItem;
 
     private Image defaultAlbumImage;
     private ImageFileLogic imageFileLogic;
@@ -346,7 +345,7 @@ public class MusicPlayerController {
         aboutMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.O, KeyCombination.CONTROL_DOWN));
         gitHubMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.G, KeyCombination.CONTROL_DOWN));
         consoleLogMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.C, KeyCombination.CONTROL_DOWN));
-        reportBugMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.B, KeyCombination.CONTROL_DOWN));
+//        reportBugMenuItem.setAccelerator(new KeyCodeCombination(KeyCode.B, KeyCombination.CONTROL_DOWN));
 
         // Buttons and Vol. Slider
         // Play/Pause
@@ -1406,8 +1405,7 @@ public class MusicPlayerController {
 
     @FXML
     private void gitHubClicked() {
-        Dotenv dotenv = Dotenv.configure().load();
-        final String gitHubUrl = dotenv.get("GITHUB");
+        final String gitHubUrl = "https://github.com/wallace-i/MusicPlayerJavaFx";
 
         HostServices hostServices = (HostServices) stage.getProperties().get("hostServices");
         hostServices.showDocument(gitHubUrl);
@@ -1434,11 +1432,11 @@ public class MusicPlayerController {
         }
     }
 
-    @FXML
-    private void reportBugClicked() throws IOException {
-        BugReportController bugReportController = new BugReportController();
-        bugReportController.showBugReportWindow(consoleOutput);
-    }
+//    @FXML
+//    private void reportBugClicked() throws IOException {
+//        BugReportController bugReportController = new BugReportController();
+//        bugReportController.showBugReportWindow(consoleOutput);
+//    }
 
 
     /** * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *

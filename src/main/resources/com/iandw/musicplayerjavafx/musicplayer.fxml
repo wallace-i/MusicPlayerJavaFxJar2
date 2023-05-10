@@ -4,7 +4,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import org.kordamp.ikonli.javafx.FontIcon?>
 
 <AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="452.0" prefWidth="675.0" styleClass="anchor-pane" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.iandw.musicplayerjavafx.MusicPlayerController">
     <HBox layoutY="87.0" prefHeight="302.0" prefWidth="675.0" styleClass="tables">
@@ -120,8 +119,7 @@
             </MenuItem>
             <MenuItem fx:id="consoleLogMenuItem" mnemonicParsing="false" onAction="#consoleLogClicked" text="Console Log">
             </MenuItem>
-            <MenuItem fx:id="reportBugMenuItem" mnemonicParsing="false" onAction="#reportBugClicked" text="Report Bug">
-            </MenuItem>
+
         </Menu>
     </MenuBar>
     <Label fx:id="playingLabel" layoutX="10.0" layoutY="29.0" text="-">
