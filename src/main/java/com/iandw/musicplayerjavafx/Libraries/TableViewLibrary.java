@@ -33,7 +33,6 @@ public class TableViewLibrary implements Runnable {
 
     @Override
     public void run() {
-
         // Load trackTableView
         if (ResourceFiles.getTrackListFile().length() > 0) {
             trackMetadataObservableList = FXCollections.observableArrayList(TrackListFileIO.inputTrackObservableList());

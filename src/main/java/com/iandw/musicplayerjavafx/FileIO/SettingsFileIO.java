@@ -77,4 +77,27 @@ public class SettingsFileIO {
             System.out.println(e.getMessage());
         }
     }
+
+    public static void jsonFileInitialize() {
+        JSONObject userSettingsDetails = new JSONObject();
+        userSettingsDetails.put("musicLibrary", "");
+        userSettingsDetails.put("themeFileName", "style-light.css");
+        userSettingsDetails.put("initialization", "standard");
+
+        JSONObject userSettingsObject = new JSONObject();
+        userSettingsObject.put("userSettings", userSettingsDetails);
+
+        JSONArray userSettingsList = new JSONArray();
+        userSettingsList.add(userSettingsObject);
+
+        try (FileWriter file = new FileWriter(ResourceFiles.getSettingsFile())) {
+            System.out.println("Writing user settings to settings.json");
+            file.write(userSettingsList.toJSONString());
+            file.flush();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+    }
 }

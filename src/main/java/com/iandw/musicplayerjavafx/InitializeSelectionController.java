@@ -116,8 +116,7 @@ public class InitializeSelectionController {
         // Set selection information text
         textAreaStandard.setText("""
                 Best for organized music libraries that follow the file structure:
-                Music Folder -> Artist Folder -> Album Folder -> Track.mp3
-                _or_
+                Music Folder -> Artist Folder -> Album Folder -> Track.mp3 or
                 Music Folder -> Artist Folder -> Track.mp3
                 Names and titles are obtained from folder and file names.""");
 

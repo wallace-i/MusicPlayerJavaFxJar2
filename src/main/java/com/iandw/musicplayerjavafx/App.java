@@ -16,6 +16,7 @@ import com.iandw.musicplayerjavafx.Utilities.UserSettings;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.io.FileNotFoundException;
+import java.nio.file.Files;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ExecutorService;
 import java.util.Objects;
@@ -24,6 +25,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 
@@ -35,6 +37,18 @@ public class App extends Application {
     @Override
     public void start(Stage stage) {
         try {
+            // Check for app data in Local Application Data folder
+            if (!ResourceFiles.getMpTeaPlayerFolder().exists()) {
+                Files.createDirectory(ResourceFiles.getMpTeaPlayerFolder().toPath());
+                Files.createDirectory(ResourceFiles.getDataFolder().toPath());
+                Files.createFile(ResourceFiles.getArtistListFile().toPath());
+                Files.createFile(ResourceFiles.getPlaylistsFile().toPath());
+                Files.createFile(ResourceFiles.getTrackListFile().toPath());
+                Files.createFile(ResourceFiles.getSettingsFile().toPath());
+                Files.createFile(ResourceFiles.getConsolelogFile().toPath());
+                SettingsFileIO.jsonFileInitialize();
+            }
+
             // Create UserSettings object to hold settings from JSON file for
             // file I/O on start up and exit
             userSettings = new UserSettings();
@@ -69,6 +83,7 @@ public class App extends Application {
                     userSettings.getThemeFileNameString())).toExternalForm());
 
             stage.setTitle("mpTea Player");
+            stage.getIcons().add(new Image(ResourceFiles.getTeacupIconFile().getPath()));
             stage.setScene(scene);
             stage.setResizable(false);
             stage.show();

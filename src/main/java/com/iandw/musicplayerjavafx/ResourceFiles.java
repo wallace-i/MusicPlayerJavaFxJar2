@@ -18,14 +18,16 @@ public class ResourceFiles {
      *                      Files from Application executable directory
      *
      */
-
-    private static final File dataFolder = new File(Utils.getExeDirPath() + File.separator + "data");
-    private static final File imagesFolder = new File(Utils.getExeDirPath() + File.separator + "images");
-    private static final File settingsFile = new File(Utils.getExeDirPath(), "settings.json");
+    private static final String userLocalAppDataFolder = System.getenv("LOCALAPPDATA");
+    private static final File mpTeaPlayerFolder = new File(userLocalAppDataFolder + File.separator + "mpTeaPlayer");
+    private static final File appFolder = new File(Utils.getExeDirPath() + File.separator + "app");
+    private static final File dataFolder = new File(mpTeaPlayerFolder + File.separator + "data");
+    private static final File imagesFolder = new File(appFolder + File.separator + "images");
+    private static final File settingsFile = new File(mpTeaPlayerFolder, "settings.json");
     private static final File artistListFile = new File(dataFolder, "artistlist.ser");
     private static final File tracklistFile = new File(dataFolder, "tracklist.ser");
     private static final File playlistsFile = new File(dataFolder, "playlists.ser");
-    private static final File consolelogFile = new File(Utils.getExeDirPath(), "consolelog.txt");
+    private static final File consolelogFile = new File(mpTeaPlayerFolder, "consolelog.txt");
 
     /**
      *                      ICON FILES
@@ -70,12 +72,16 @@ public class ResourceFiles {
 
     private static final File xFile = new File(imagesFolder, "x.png");
 
+    private static final File teacupIconFile = new File(imagesFolder, "teacupicon.png");
+
     /**
      *
      *                      GETTERS
      *
      */
 
+    public static File getDataFolder() { return dataFolder; }
+    public static File getMpTeaPlayerFolder() { return mpTeaPlayerFolder; }
     public static File getSettingsFile() { return settingsFile; }
     public static File getArtistListFile() { return artistListFile; }
     public static File getTrackListFile() { return tracklistFile; }
@@ -100,6 +106,7 @@ public class ResourceFiles {
     public static File getNotesFile() { return notesFile; }
     public static File getSearchFile() { return searchFile; }
     public static File getxFile() { return xFile; }
+    public static File getTeacupIconFile() { return teacupIconFile; }
 
     // Album Image Files
     public static File getMusicnotesLightFile() { return musicnoteslightFile; }

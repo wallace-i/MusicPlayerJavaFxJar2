@@ -11,6 +11,7 @@
 package com.iandw.musicplayerjavafx.Utilities;
 
 import com.iandw.musicplayerjavafx.FileIO.SettingsFileIO;
+import com.iandw.musicplayerjavafx.ResourceFiles;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
