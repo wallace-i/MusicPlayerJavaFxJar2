@@ -15,7 +15,7 @@ public class ResourceFiles {
 
     /**
      *
-     *                      Files from Application executable directory
+     *                      APPLICATION DATA AND SETTINGS FILES
      *
      */
     private static final String userLocalAppDataFolder = System.getenv("LOCALAPPDATA");
