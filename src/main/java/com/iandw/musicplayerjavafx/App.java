@@ -14,6 +14,7 @@ import com.iandw.musicplayerjavafx.Libraries.TableViewLibrary;
 import com.iandw.musicplayerjavafx.Utilities.UserSettings;
 
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.PrintStream;
 import java.io.FileNotFoundException;
 import java.nio.file.Files;
@@ -37,17 +38,8 @@ public class App extends Application {
     @Override
     public void start(Stage stage) {
         try {
-            // Check for app data in Local Application Data folder
-            if (!ResourceFiles.getMpTeaPlayerFolder().exists()) {
-                Files.createDirectory(ResourceFiles.getMpTeaPlayerFolder().toPath());
-                Files.createDirectory(ResourceFiles.getDataFolder().toPath());
-                Files.createFile(ResourceFiles.getArtistListFile().toPath());
-                Files.createFile(ResourceFiles.getPlaylistsFile().toPath());
-                Files.createFile(ResourceFiles.getTrackListFile().toPath());
-                Files.createFile(ResourceFiles.getSettingsFile().toPath());
-                Files.createFile(ResourceFiles.getConsolelogFile().toPath());
-                SettingsFileIO.jsonFileInitialize();
-            }
+            // Initialize files and directories in user's Local AppData folder if non-existent
+            initializeAppData();
 
             // Create UserSettings object to hold settings from JSON file for
             // file I/O on start up and exit
@@ -113,7 +105,7 @@ public class App extends Application {
      * @throws FileNotFoundException
      * @throws InterruptedException
      */
-    public void saveAndExit(Stage stage, ByteArrayOutputStream consoleOutput) throws FileNotFoundException, InterruptedException {
+    private void saveAndExit(Stage stage, ByteArrayOutputStream consoleOutput) throws FileNotFoundException, InterruptedException {
 
         // Output to file on close if files data has been altered
         if (userSettings.getWriteOnClose()) {
@@ -129,7 +121,23 @@ public class App extends Application {
         stage.close();
     }
 
-    public static void main(String[] args) {
-        launch(args);
+    /**
+     * initializeAppData()
+     *
+     * @throws IOException
+     */
+    private void initializeAppData() throws IOException {
+        if (!ResourceFiles.getMpTeaPlayerFolder().exists()) {
+            Files.createDirectory(ResourceFiles.getMpTeaPlayerFolder().toPath());
+            Files.createDirectory(ResourceFiles.getDataFolder().toPath());
+            Files.createFile(ResourceFiles.getArtistListFile().toPath());
+            Files.createFile(ResourceFiles.getPlaylistsFile().toPath());
+            Files.createFile(ResourceFiles.getTrackListFile().toPath());
+            Files.createFile(ResourceFiles.getSettingsFile().toPath());
+            Files.createFile(ResourceFiles.getConsolelogFile().toPath());
+            SettingsFileIO.settingsFileInitialize();
+        }
     }
+
+    public static void main(String[] args) { launch(args); }
 }

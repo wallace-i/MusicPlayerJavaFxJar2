@@ -78,7 +78,7 @@ public class SettingsFileIO {
         }
     }
 
-    public static void jsonFileInitialize() {
+    public static void settingsFileInitialize() {
         JSONObject userSettingsDetails = new JSONObject();
         userSettingsDetails.put("musicLibrary", "");
         userSettingsDetails.put("themeFileName", "style-light.css");

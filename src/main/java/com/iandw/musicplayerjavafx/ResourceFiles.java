@@ -19,7 +19,7 @@ public class ResourceFiles {
      *
      */
     private static final String userLocalAppDataFolder = System.getenv("LOCALAPPDATA");
-    private static final File mpTeaPlayerFolder = new File(userLocalAppDataFolder + File.separator + "mpTeaPlayer");
+    private static final File mpTeaPlayerFolder = new File(userLocalAppDataFolder + File.separator + "mpTea Player");
     private static final File appFolder = new File(Utils.getExeDirPath() + File.separator + "app");
     private static final File dataFolder = new File(mpTeaPlayerFolder + File.separator + "data");
     private static final File imagesFolder = new File(appFolder + File.separator + "images");

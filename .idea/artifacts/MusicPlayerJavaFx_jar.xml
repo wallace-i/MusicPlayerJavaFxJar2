@@ -6,7 +6,6 @@
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-base/18/javafx-base-18.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/../../../../Program Files/Java/javafx-sdk-18.0.1/lib/javafx.media.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-fxml/18/javafx-fxml-18-win.jar" path-in-jar="/" />
-      <element id="library" level="project" name="bin" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/net/jthink/jaudiotagger/3.0.1/jaudiotagger-3.0.1.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-controls/18/javafx-controls-18-win.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/json-simple-1.1.1.jar" path-in-jar="/" />
@@ -18,7 +17,6 @@
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/javafx-base-18.0.1-win.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-fxml/18/javafx-fxml-18.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../Program Files/Java/javafx-sdk-18.0.1/lib/javafx.web.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/jsoup-1.15.4.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2.jar" path-in-jar="/" />
@@ -35,6 +33,8 @@
       <element id="extracted-dir" path="$PROJECT_DIR$/../../../../Program Files/Java/javafx-sdk-18.0.1/lib/javafx.fxml.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-controls/18/javafx-controls-18.jar" path-in-jar="/" />
       <element id="dir-copy" path="$PROJECT_DIR$/src/main/resources" />
+      <element id="library" level="project" name="bin" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../../Program Files/Java/javafx-sdk-18.0.1/lib/javafx.web.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

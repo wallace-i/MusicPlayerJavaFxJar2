@@ -205,6 +205,7 @@ public class InitializeSelectionController {
                 task.setOnSucceeded(evt -> progressBarController.close());
                 task.setOnFailed(evt -> {
                     System.out.println("Initialization Failed.");
+                    System.out.println(task.getException().toString());
                     progressBarController.close();
 
                     Alert alert = new Alert(Alert.AlertType.ERROR);
