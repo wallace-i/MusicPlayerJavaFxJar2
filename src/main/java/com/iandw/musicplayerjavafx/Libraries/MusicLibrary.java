@@ -98,8 +98,8 @@ public class MusicLibrary {
     public void standardInitialization(ProgressBarData progressBarData) throws IOException {
         System.out.println("Initializing observable list");
         ArrayList<String> tempArtistArray = new ArrayList<>();
-        Utils.clearSerializedFiles();
 
+        Utils.clearSerializedFiles();
         Path rootPath = Paths.get(rootMusicDirectoryString);
 
         if (Files.exists(rootPath)) {
@@ -108,7 +108,6 @@ public class MusicLibrary {
 
                 // MUSIC DIRECTORY => LOOP THROUGH ARTIST FOLDERS
                 for (Path artistFolder : musicDir) {
-
                     // Break on Cancel Button Clicked
                     if (Thread.currentThread().isInterrupted()) {
                         System.out.println("Cancelling gracefully...");
@@ -116,7 +115,6 @@ public class MusicLibrary {
                     }
 
                     Path artistDirectoryPath = artistFolder.toAbsolutePath();
-
                     artistNameStr = artistDirectoryPath.toString().substring(artistDirectoryPath.toString().lastIndexOf(File.separator) + 1);
 
                     if (Files.isDirectory(artistDirectoryPath)) {
@@ -131,13 +129,11 @@ public class MusicLibrary {
 
                         // ARTIST DIRECTORY => LOOP THROUGH ALBUM FOLDERS
                         for (Path albumFolder : artistDir) {
-
                             // Break on Cancel Button Clicked
                             if (Thread.currentThread().isInterrupted()) {
                                 System.out.println("Cancelling gracefully...");
                                 break;
                             }
-
                             Path albumDirectoryPath = albumFolder.toAbsolutePath();
                             albumDirectoryStr = albumDirectoryPath.toString().substring(albumDirectoryPath.toString().lastIndexOf(File.separator) + 1);
 
@@ -511,6 +507,7 @@ public class MusicLibrary {
     // For Standard Initialization
     private void standardParse() {
         try {
+            // Program fails here
             AudioFile audioFile = AudioFileIO.read(new File(trackPathStr));
             Tag tag = audioFile.getTag();
             String trackTitle = trackFileName;
@@ -518,7 +515,6 @@ public class MusicLibrary {
             String trackGenre;
             final String duration = Utils.formatSeconds(audioFile.getAudioHeader().getTrackLength());
             final String playlist = "*";
-
             // Check title metadata for null value, if true replace with file name substring
             if (tag.getFirst(FieldKey.TITLE) == null || Objects.equals(tag.getFirst(FieldKey.TITLE), "")) {
                 trackTitle = trackFileName.substring(0, trackTitle.indexOf('.'));
@@ -557,7 +553,6 @@ public class MusicLibrary {
                 String trackGenreID = trackGenre.substring(trackGenre.indexOf('(') + 1, trackGenre.indexOf(')'));
                 trackGenre = ID3v1Genres.getGenre(Integer.parseInt(trackGenreID));
             }
-
             // Populate Track object
             TrackMetadata trackMetadata = new TrackMetadata(
                     artistNameStr,
@@ -570,15 +565,12 @@ public class MusicLibrary {
                     trackPathStr,
                     playlist
             );
-
             trackMetadataObservableList.add(trackMetadata);
-
             System.out.println("Importing: " + trackFileName);
             System.out.println(tag);
 
-
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println(e.getMessage());
         }
     }
 
