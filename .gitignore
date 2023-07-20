@@ -42,4 +42,4 @@ build/
 .env.test
 
 ### artifact ###
-/out/*
+out/**
