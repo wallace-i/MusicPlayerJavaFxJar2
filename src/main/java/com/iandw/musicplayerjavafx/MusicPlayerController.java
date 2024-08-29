@@ -129,17 +129,12 @@ public class MusicPlayerController {
     @FXML
     private MenuItem consoleLogMenuItem;
     private Image defaultAlbumImage;
-    private ImageFileLogic imageFileLogic;
     private ImageView playIcon;
     private ImageView pauseIcon;
     private ImageView volumeUpIcon;
     private ImageView volumeDownIcon;
     private ImageView volumeOffIcon;
     private ImageView volumeMuteIcon;
-    private ImageView personIcon;
-    private ImageView discIcon;
-    private ImageView notesIcon;
-    private ImageView clearIcon;
     private MediaPlayer mediaPlayer;
     private MusicLibrary musicLibrary;
     private final TableViewLibrary tableViewLibrary;
@@ -195,7 +190,7 @@ public class MusicPlayerController {
         artistsListSelected = true;
         searchTableView = new SearchTableView();
         currentTheme = userSettings.getThemeFileNameString();
-        imageFileLogic = new ImageFileLogic(currentTheme);
+        ImageFileLogic imageFileLogic = new ImageFileLogic(currentTheme);
         albumImageWidth = 55;
         volumeDouble = .25;
         autoPlay = AutoPlay.OFF;
@@ -222,11 +217,11 @@ public class MusicPlayerController {
         volumeDownIcon = new ImageView(ResourceFiles.getVolumeDownFile().getPath());
         volumeOffIcon = new ImageView(ResourceFiles.getVolumeOffFile().getPath());
         volumeMuteIcon = new ImageView(ResourceFiles.getVolumeMuteFile().getPath());
-        personIcon = new ImageView(ResourceFiles.getPersonFile().getPath());
-        discIcon = new ImageView(ResourceFiles.getDiscFile().getPath());
-        notesIcon = new ImageView(ResourceFiles.getNotesFile().getPath());
+        ImageView personIcon = new ImageView(ResourceFiles.getPersonFile().getPath());
+        ImageView discIcon = new ImageView(ResourceFiles.getDiscFile().getPath());
+        ImageView notesIcon = new ImageView(ResourceFiles.getNotesFile().getPath());
         ImageView searchIcon = new ImageView(ResourceFiles.getSearchFile().getPath());
-        clearIcon = new ImageView(ResourceFiles.getxFile().getPath());
+        ImageView clearIcon = new ImageView(ResourceFiles.getxFile().getPath());
 
         // Set Icon Color
         autoPlayIcon.setEffect(imageFileLogic.getLighting());

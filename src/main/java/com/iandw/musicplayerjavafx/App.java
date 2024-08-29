@@ -78,7 +78,12 @@ public class App extends Application {
             stage.setTitle("mpTea Player");
             stage.getIcons().add(new Image(ResourceFiles.getTeacupIconFile().getPath()));
             stage.setScene(scene);
-            stage.setResizable(false);
+            stage.setResizable(true);
+            // Set Window size constraints
+            stage.setMinWidth(675);
+            stage.setMinHeight(452);
+            stage.setHeight(600);
+            stage.setWidth(900);
             stage.show();
 
             // Save user settings on close

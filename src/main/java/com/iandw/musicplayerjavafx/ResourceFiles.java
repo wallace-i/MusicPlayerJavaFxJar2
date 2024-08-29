@@ -48,6 +48,9 @@ public class ResourceFiles {
     private static final File personFile = new File(imagesFolder, "person.png");
     private static final File discFile = new File(imagesFolder, "disc.png");
     private static final File notesFile = new File(imagesFolder, "notes.png");
+    private static final File searchFile = new File(imagesFolder, "search.png");
+    private static final File xFile = new File(imagesFolder, "x.png");
+    private static final File teacupIconFile = new File(imagesFolder, "teacupicon.png");
 
 
     /**
@@ -67,12 +70,6 @@ public class ResourceFiles {
     private static final File musicnotespinkFile = new File(imagesFolder,"musicnotes-pink.png");
 
     private static final File musicnotesconsoleFile = new File(imagesFolder, "musicnotes-console.png");
-
-    private static final File searchFile = new File(imagesFolder, "search.png");
-
-    private static final File xFile = new File(imagesFolder, "x.png");
-
-    private static final File teacupIconFile = new File(imagesFolder, "teacupicon.png");
 
     /**
      *
